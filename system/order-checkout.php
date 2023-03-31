@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // include 'dbms/conn.php';
+    include 'dbms/conn.php';
     include 'function.php';
     include('smtp/PHPMailerAutoload.php');    
 
