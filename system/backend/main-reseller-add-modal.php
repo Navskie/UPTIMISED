@@ -37,23 +37,7 @@
         $account_email = $_POST['remail'];
         $account_user = $_POST['ruser'];
         $account_address = $_POST['raddress'];
-        $pack = $_POST['pack'];
         $countryniya = $_POST['country'];
-        $fb = $_POST['fb'];
-        $mod = $_POST['mods'];
-        $rfile = $_FILES['rfile']['name'];
-        $img_size = $_FILES['rfile']['size'];
-        $img_tmp = $_FILES['rfile']['tmp_name'];
-
-        $img_ex = pathinfo($rfile, PATHINFO_EXTENSION);
-        // echo ($img_ex);
-        $img_ex_lc = strtolower($img_ex);
-
-        $allow_ex = array("jpg", "jpeg", "png");
-
-            $new_name = uniqid("W-", true).'.'.$img_ex_lc;
-            $img_path_sa_buhay_niya = 'images/payment/'.$new_name;
-            move_uploaded_file($img_tmp, $img_path_sa_buhay_niya);
         
         $check_un = "SELECT * FROM upti_users WHERE users_code = '$referal_code' OR users_username = '$account_user'";
         $check_un_qry = mysqli_query($connect, $check_un);
@@ -63,9 +47,6 @@
 
             echo "<script>alert('Duplicate Username Please Try Again');window.location.href = 'reseller-main-list.php';</script>";
 
-        } else {
-        if ($countryniya == '' || $pack == '' || $account_address == '' || $mod == '') {
-            echo "<script>alert('All fields are required.');window.location.href = 'reseller-main-list.php';</script>";
         } else {
 
             $get_package = "SELECT * FROM upti_package WHERE package_code = '$pack'";
@@ -111,9 +92,9 @@
             $countr_series_qry = mysqli_query($connect, $count_series);
     
             echo "<script>alert('Uptimain Reseller has been Added successfully.');window.location.href = 'reseller-main-list.php';</script>";
-        }
         
-    }
+        
+      }
 
     }
 ?>
@@ -129,22 +110,8 @@
         <div class="modal-body">
         <form action="reseller-main-list.php" method="post" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
-                        <label>Reseller Package</label>
-                        <select class="form-control select2bs4" style="width: 100%;" name="pack">
-                            <option value="">Select Package</option>
-                            <?php
-                            $product_sql = "SELECT * FROM upti_package WHERE package_category = 'RESELLER'";
-                            $product_qry = mysqli_query($connect, $product_sql);
-                            while ($product = mysqli_fetch_array($product_qry)) {
-                            ?>
-                            <option value="<?php echo $product['package_code'] ?>"><?php echo $product['package_desc'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6">
+                
+                <div class="col-12">
                     <div class="form-group">
                         <label>Reseller Country</label>
                         <select class="form-control select2bs4" style="width: 100%;" name="country">
@@ -182,31 +149,6 @@
                 <div class="col-12">
                     <label for="">Address:</label>
                     <textarea name="raddress" id="" cols="10" rows="5" class="form-control" autocomplete="off"></textarea>
-                </div>
-                <div class="col-6">
-                    <label for="">Facebook:</label>
-                    <input type="text" class="form-control" name="fb" autocomplete="off" required>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label>Mode of Payment</label>
-                        <select class="form-control select2bs4" style="width: 100%;" name="mods">
-                            <option value="">Select Country</option>
-                            <option value="Cash on Pick Up">Cash on Pick Up</option>
-                            <option value="Cash on Delivery">Cash on Delivery</option>
-                            <option value="Payment First">Payment First</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <br>
-                    <div class="form-group">
-                        <label for="">Upload Receipt</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="fileuploads" name="rfile">
-                            <label class="custom-file-label" for="fileupload">Choose file</label>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
