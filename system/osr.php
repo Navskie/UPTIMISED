@@ -206,39 +206,37 @@
             
         } 
 
-          if($saless == 0 && $spent_ngayon != 0) {
-                $DailyROAS = 0;
-            } elseif ($saless != 0 && $spent_ngayon == 0) {
-                $DailyROAS = 0;
-            } elseif ($saless == 0 && $spent_ngayon == 0) {
-                $DailyROAS = 0;
-            } else {
-                $DailyROAS = $saless / $spent_ngayon;
-            }
-
-            if($totsales == 0 && $mtd_ngayon != 0) {
-                $MtdROAS = 0;
-            } elseif ($totsales != 0 && $mtd_ngayon == 0) {
-                $MtdROAS = 0;
-            } elseif ($totsales == 0 && $mtd_ngayon == 0) {
-                $MtdROAS = 0;
-            } else {
-                $MtdROAS = $totsales / $mtd_ngayon;
-            }
-
-            if($mtd_ngayon == 0 && $sales != 0) {
-                $DeliveredROAS = 0;
-            } elseif ($mtd_ngayon != 0 && $sales == 0) {
-                $DeliveredROAS = 0;
-            } elseif ($mtd_ngayon == 0 && $sales == 0) {
-                $DeliveredROAS = 0;
-            } else {
-                $DeliveredROAS = $sales / $mtd_ngayon;
-            }
-
         ?>
         <br>
         <div class="row">
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="course">
+              <div class="preview bg-success">
+                <h2 class="text-center"><i class="uil uil-dollar-alt"></i></h2>
+              </div>
+
+              <div class="info">
+                <h6>Delivered Sales</h6>
+                <h2><b>
+                <?php
+                  $website_del = "SELECT SUM(cart_earn) AS website_sales FROM web_cart INNER JOIN upti_activities ON activities_poid = cart_ref WHERE cart_upper = '$osrID' AND activities_caption = 'Delivered' AND activities_date BETWEEN '$date1' AND '$date2'";
+                  $website_test = mysqli_query($connect, $website_del);
+                  $website_del_fetch = mysqli_fetch_array($website_test);
+      
+                  $website_sales4 = $website_del_fetch['website_sales'] + $sales;
+                  // echo $total_rts;
+                  $new_total_sales = $website_sales4 + $total_rts;
+                ?>
+                <?php 
+                  echo '₱ '.number_format($website_sales4);
+                ?>
+                </b></h2>
+                <!-- <a href="admin-rts-order.php" class="text-info">MORE INFO </a> -->
+              </div>
+            </div>
+            <br>
+          </div>
 
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -263,115 +261,11 @@
             <br>
           </div>
 
-          <?php
-
-            $get_saless = "SELECT SUM(inq_number) AS inq FROM upti_inquiries WHERE inq_date = '$date2' AND inq_osr = '$osrID'";
-            $get_saless_qry = mysqli_query($connect, $get_saless);
-            $get_saless_fetch = mysqli_fetch_array($get_saless_qry);
-            $saless223 = mysqli_num_rows($get_saless_qry);
-            
-            $saless = $get_saless_fetch['inq'];
-
-          ?>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="course">
-              <div class="preview bg-success">
-                <h2 class="text-center"><i class="uil uil-user-plus"></i></h2>
-              </div>
-
-              <div class="info">
-                <h6>Total Inquiries</h6>
-                <h2><b>
-                <?php      
-                  if ($saless223 == 0) {
-                      echo '0';
-                  } else {
-                      echo number_format($saless);
-                  } 
-                ?>
-                </b></h2>
-                <!-- <a href="admin-rts-order.php" class="text-info">MORE INFO </a> -->
-              </div>
-            </div>
-            <br>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="course">
-              <div class="preview bg-danger">
-                <h2 class="text-center"><i class="uil uil-percentage"></i></h2>
-              </div>
-
-              <div class="info">
-                <h6>Today ROAS</h6>
-                <h2><b>
-                <?php 
-                  if ($saless223 == 0) {
-                      echo '0';
-                  } else {
-                      echo number_format($DailyROAS, 2, '.', '');
-                  } 
-                ?>
-                </b></h2>
-                <!-- <a href="admin-rts-order.php" class="text-info">MORE INFO </a> -->
-              </div>
-            </div>
-            <br>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="course">
-              <div class="preview bg-danger">
-                <h2 class="text-center"><i class="uil uil-percentage"></i></h2>
-              </div>
-
-              <div class="info">
-                <h6>Delivered ROAS</h6>
-                <h2><b>
-                <?php 
-                  if ($saless223 == 0) {
-                      echo '0';
-                  } else {
-                      echo number_format($DeliveredROAS, 2, '.', '');
-                  } 
-                ?>
-                </b></h2>
-                <!-- <a href="admin-rts-order.php" class="text-info">MORE INFO </a> -->
-              </div>
-            </div>
-            <br>
-          </div>
+          
             
         </div>
         <hr>
         <div class="row">
-
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="course">
-              <div class="preview bg-success">
-                <h2 class="text-center"><i class="uil uil-percentage"></i></h2>
-              </div>
-              <?php
-                $website_del = "SELECT SUM(cart_earn) AS website_sales FROM web_cart INNER JOIN upti_activities ON activities_poid = cart_ref WHERE cart_upper = '$osrID' AND activities_caption = 'Delivered' AND activities_date BETWEEN '$date1' AND '$date2'";
-                $website_test = mysqli_query($connect, $website_del);
-                $website_del_fetch = mysqli_fetch_array($website_test);
-    
-                $website_sales4 = $website_del_fetch['website_sales'] + $sales;
-                // echo $total_rts;
-                $new_total_sales = $website_sales4 + $total_rts;
-              ?>
-              <div class="info">
-                <h6>Total Delivered Sales</h6>
-                <h2><b>
-                <?php 
-                  echo '₱ '.number_format($website_sales4);
-                ?>
-                </b></h2>
-                <p class="text-info">For the month of <?php echo $month ?> </p>
-              </div>
-            </div>
-            <br>
-          </div>
 
           <?php
 

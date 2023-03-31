@@ -1044,6 +1044,7 @@
               <i class="nav-icon uil uil-ticket"></i>
               <p>
                 Inventory
+                <span class="badge badge-danger right">New</span>
               </p>
             </a>
           </li>
@@ -1457,19 +1458,20 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="osr-fb.php" class="nav-link">
               <i class="nav-icon uil uil-facebook-f"></i>
               <p>
                 Facebook Page
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="inventory.php" class="nav-link">
               <i class="nav-icon uil uil-ticket"></i>
               <p>
                 Inventory
+                <span class="badge badge-danger right">New</span>
               </p>
             </a>
           </li>
@@ -2171,20 +2173,17 @@
     <!-- Sidebar -->
     <div class="sidebar" style="background: #b0e0e6 !important;">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="./images/icon/274966106_640652090373107_513539919171817442_n.ico" class="" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"><?php echo $get_info_fetch['users_name'] ?></a>
-        </div>
+      <div class="user-panel mt-3 pb-3 mb-3">
+         <div class="image">
+            <img src="./images/profile/default.png" class="rounded-circle" style="width: 90%; z-index: -5;">
+         </div>        
       </div>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="accounting.php" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
+              <i class="nav-icon uil uil-dashboard"></i>
               <p>Dashboard</p>
             </a>
           </li>
@@ -2198,19 +2197,19 @@
           </li>
           <li class="nav-item">
             <a href="osc-wallet-list.php" class="nav-link">
-              <i class="nav-icon fas fa-wallet"></i>
+              <i class="nav-icon uil uil-wallet"></i>
               <p>OSC Token</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="accounting-inventory.php" class="nav-link">
+            <a href="inventory.php" class="nav-link">
               <i class="nav-icon uil uil-chart"></i>
               <p>Inventory</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-dollar-sign"></i>
+              <i class="nav-icon uil uil-wallet"></i>
               <p>
                 Wallet Request
                 <i class="fas fa-angle-left right"></i>
@@ -2243,7 +2242,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-dollar-sign"></i>
+              <i class="nav-icon uil uil-panel-add"></i>
               <p>
                 Purchase Order
                 <i class="fas fa-angle-left right"></i>
@@ -2316,12 +2315,12 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="accounting-replacement.php" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>Replacement</p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -2380,24 +2379,27 @@
     <!-- Sidebar -->
     <div class="sidebar" style="background: #b0e0e6 !important;">
     <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="./images/icon/274966106_640652090373107_513539919171817442_n.ico" class="" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"><?php echo $get_info_fetch['users_name'] ?></a>
-        </div>
-      </div>
+      <div class="user-panel mt-3 pb-3 mb-3">
+         <div class="image">
+            <img src="./images/profile/default.png" class="rounded-circle" style="width: 90%; z-index: -5;">
+         </div>        
+       </div>
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <li class="nav-item">
         <a href="logistic-supplier.php" class="nav-link">
-          <i class="nav-icon fas fa-home"></i>
+          <i class="nav-icon uil uil-dashboard"></i>
           <p>Supplier PO</p>
         </a>
       </li>
       <li class="nav-item">
+        <a href="admin-sales-item.php" class="nav-link">
+          <i class="uil uil-panel-add nav-icon"></i>
+          <p>Sales Item</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-warehouse"></i>
+          <i class="nav-icon uil uil-building"></i>
           <p>
             Inventory
             <i class="fas fa-angle-left right"></i>
@@ -2411,22 +2413,17 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="accounting-inventory.php" class="nav-link">
+            <a href="inventory.php" class="nav-link">
               <i class="nav-icon fas fa-adjust"></i>
-              <p>Generate Inventory</p>
+              <p>Country Inventory</p>
             </a>
           </li>
         </ul>
       </li>
-      <li class="nav-item">
-        <a href="admin-sales-item.php" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>Sales Item</p>
-        </a>
-      </li>
+      
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon uil uil-panel-add"></i>
+          <i class="nav-icon uil uil-file-landscape"></i>
           <p>
             Country PO
             <i class="fas fa-angle-left right"></i>
@@ -2456,7 +2453,7 @@
 
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-reply"></i>
+          <i class="nav-icon  uil uil-exclamation-triangle"></i>
           <p>
             Return Items
             <i class="fas fa-angle-left right"></i>
