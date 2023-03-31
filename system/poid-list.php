@@ -220,21 +220,7 @@
                                             $buo = $items['ol_subtotal'];
                                             $code = $items['ol_code'];
                                             $country_pack = $items['ol_country'];
-
-                                            $realme = "SELECT * FROM upti_package WHERE package_code = '$code'";
-                                            $realme_qry = mysqli_query($connect, $realme);
-                                            $realme_num_row = mysqli_num_rows($realme_qry);
-                                            
-                                            if ($realme_num_row == 1) {
-                                                $get_country = "SELECT * FROM upti_country WHERE country_code = '$code' AND country_name = '$country_pack'";
-                                                $get_country_sql = mysqli_query($connect, $get_country);
-                                                $get_pack_price = mysqli_fetch_array($get_country_sql);
-                                                
-                                                $presyo = $get_pack_price['country_price'];
-
-                                            }
-                                            
-                                            
+                                                        
                                     ?>
                                     <tr>
                                         <td>
