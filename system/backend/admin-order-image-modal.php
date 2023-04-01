@@ -10,7 +10,7 @@
         <div class="modal-body">
             <div class="row">
                 <div class="col-12">
-                    <img src="images/payment/<?php echo $order['trans_img']; ?>"" alt="" width="100%" class="image-responsive">
+                    <img src="images/payment/<?php echo $order['trans_img']; ?>" alt="" width="100%" class="image-responsive">
                 </div>
             </div>
         </div>
