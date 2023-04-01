@@ -518,7 +518,13 @@
                                                     <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Pick Up</button>
                                                 </div>
                                             </div>
+                                            <div class="col-12">
+                                              <div class="form-group">
+                                                  <button type="submit" name="epayment" class="form-control btn btn-info" style="border-radius: 0 !important">Payments First</button>
+                                              </div>
+                                            </div>
                                         </div>
+                                        
                                         </form>
                                         
                                     </div>
