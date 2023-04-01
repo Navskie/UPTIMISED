@@ -29,7 +29,7 @@
                                 </thead>
                                 <?php
                                   $mycode = $_SESSION['code'];
-                                  $order_sql = "SELECT DISTINCT trans_fname, trans_lname, trans_country, trans_address, trans_contact, id, trans_csid FROM upti_transaction WHERE trans_seller = '$mycode' GROUP BY trans_csid, trans_fname ORDER BY id DESC";
+                                  $order_sql = "SELECT DISTINCT trans_fname, trans_country, trans_address, trans_contact, id, trans_csid FROM upti_transaction WHERE trans_seller = '$mycode' GROUP BY trans_csid, trans_fname ORDER BY id DESC";
                                   $order_qry = mysqli_query($connect, $order_sql);
                                   $number =1;
                                   while ($order = mysqli_fetch_array($order_qry)) {
@@ -45,7 +45,7 @@
                                 <tr>
                                   <td class="text-center"><?php echo $number; ?></td>         
                                   <td class="text-center"><?php echo $order['trans_csid'] ?></td>               
-                                  <td class="text-center"><?php echo $order['trans_fname']; ?> <?php echo $order['trans_lname']; ?></td>
+                                  <td class="text-center"><?php echo $order['trans_fname']; ?></td>
                                   <td class="text-center"><?php echo $order['trans_contact'] ?></td>
                                   <td class="text-center"><?php echo $order['trans_address'] ?></td>
                                   <td class="text-center"><?php echo $order['trans_country'] ?></td>
