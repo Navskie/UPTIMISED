@@ -24,7 +24,6 @@
     $get_data_fetch = mysqli_fetch_array($get_data_sql);
 
     $firstname = $get_data_fetch['trans_fname'];
-    $fb = $get_data_fetch['trans_fb'];
     $email = $get_data_fetch['trans_email'];
     $mobile = $get_data_fetch['trans_contact'];
     $address = $get_data_fetch['trans_address'];

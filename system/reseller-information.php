@@ -1,7 +1,7 @@
 <?php
     session_start();
    
-    include 'dbms/conn.php';
+    // include 'dbms/conn.php';
     include 'function.php';
 
     date_default_timezone_set("Asia/Manila"); 
@@ -75,7 +75,7 @@
 
                   $creator_role = $count_fetch['users_role'];
                   if ($creator_role == 'UPTIRESELLER') {
-                      $code = $count_fetch['users_code'];
+                      $code = $count_fetch['users_main'];
                   } else {
                       $code = $count_fetch['users_main'];
                   }

@@ -6,6 +6,12 @@
     $uid = $_SESSION['uid'];
     $id = $_GET['id'];
 
+    $getnamex = "SELECT * FROM upti_users WHERE users_id = '$uid'";
+    $getnamex_qry = mysqli_query($connect, $getnamex);
+    $getnamex_fetch = mysqli_fetch_array($getnamex_qry);
+    
+    $namex = $getnamex_fetch['users_name'];
+
     if (isset($_POST['delivered'])) {
         // DATE TIME
         date_default_timezone_set('Asia/Manila'); 
@@ -452,6 +458,12 @@
           // INVENTORY REPORT
           $inv_report = "UPDATE stockist_report SET rp_status = 'Delivered' WHERE rp_poid = '$poid'";
           $inv_report_qry = mysqli_query($connect, $inv_report);
+
+          $desc = $namex.' Approve '.$poid.' set Ordered Status into Delivered';
+
+          // HISTORY
+          $act = "INSERT INTO upti_activities (activities_poid, activities_time, activities_date, activities_name, activities_caption, activities_desc) VALUES ('$poid', '$time', '$datenow', '$namex', 'Order Delivered', '$desc')";
+          $act_qry = mysqli_query($connect, $act);
 
           // UPDATE ACCOUNT
           $users_report = "UPDATE upti_users SET users_status = 'Active' WHERE users_poid = '$poid'";
