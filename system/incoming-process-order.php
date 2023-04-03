@@ -102,7 +102,7 @@
                                       <?php echo $fullname; ?>
                                   </td>
                                   <td class="text-center"><?php echo $order['trans_country']; ?></td>
-                                  <td class="text-center"><?php echo $order['trans_fname']; ?> <?php echo $order['trans_cname']; ?> <?php echo $order['trans_lname']; ?></td>
+                                  <td class="text-center"><?php echo $order['trans_fname']; ?></td>
                                   <td class="text-center"><?php echo $order['trans_date']; ?></td>
                                   <td class="text-center"><?php echo $order['trans_mop']; ?></td>
                                   <td class="text-center"><button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#image<?php echo $order['id']; ?>"><i class="fas fa-image"></i></button></td>

@@ -220,6 +220,9 @@
                                             $buo = $items['ol_subtotal'];
                                             $code = $items['ol_code'];
                                             $country_pack = $items['ol_country'];
+
+                                            $realme_num_sql = mysqli_query($connect, "SELECT * FROM upti_package WHERE package_code = '$code'");
+                                            $realme_num_row = mysqli_num_rows($realme_num_sql);
                                                         
                                     ?>
                                     <tr>
