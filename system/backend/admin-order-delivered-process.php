@@ -96,7 +96,7 @@
         
 
         // RESELLER
-        $reseller_rbt = $regular_fetch['reseller'];
+        $reseller_rbt = $reseller_fetch['reseller'];
 
         
         // CROSS SELL
@@ -112,6 +112,8 @@
         $earning_3rd = $earning * $one_percent;
 
         $reseller_earning_10 = $reseller_rbt * $ten_percent;
+        $reseller_tax = $reseller_earning_10 * 0.05;
+        $reseller_total = $reseller_earning_10 - $reseller_tax;
 
         $total_php = $direct_fetch['direct'] + $upsell_fetch['upsell'] + $regular_fetch['regular'];
 
@@ -249,11 +251,11 @@
             $reseller_wallet_sql = mysqli_query($connect, "SELECT * FROM upti_reseller WHERE reseller_code = '$reseller'");
             $reseller_wallet_fetch = mysqli_fetch_array($reseller_wallet_sql);
 
-            $reseller_wallet = $reseller_wallet_fetch['reseller_earning'] + $reseller_earning_10;
+            $reseller_wallet = $reseller_wallet_fetch['reseller_earning'] + $reseller_total;
 
             $wallet_update = mysqli_query($connect, "UPDATE upti_reseller SET reseller_earning = '$reseller_wallet' WHERE reseller_code = '$reseller'");
 
-            $wallet_remarks = 'You Received 10% Comission Reseller Creation Worth of '.$reseller_earning_10.' ['.$country.']';
+            $wallet_remarks = 'You Received 10% Comission Reseller Creation Worth of '.$reseller_total.' ['.$country.']';
 
             $earn_history = "INSERT INTO upti_earning (earning_code, earning_poid, earning_earnings, earning_tax, earning_remarks, earning_status, earning_name) VALUES ('$reseller', '$poid', '$reseller_earning_10', '$tax', '$wallet_remarks', 'Sales', '$reseller')";
             $earn_history_sql = mysqli_query($connect, $earn_history);
