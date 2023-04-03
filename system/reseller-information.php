@@ -106,6 +106,26 @@
                       '$code'
                   )");
 
+                  $reseller = mysqli_query($connect, "INSERT INTO upti_reseller (
+                    reseller_poid,
+                    reseller_name,
+                    reseller_mobile,
+                    reseller_address,
+                    reseller_email,
+                    reseller_code,
+                    reseller_osr,
+                    reseller_country
+                  ) VALUES (
+                    '$poid',
+                    '$fullnames',
+                    '$phone',
+                    '$address',
+                    '$email',
+                    '$poid',
+                    '$code',
+                    '$country'
+                  )");
+
                   $save_sql = "INSERT INTO upti_transaction (
                     trans_poid,
                     trans_date, 

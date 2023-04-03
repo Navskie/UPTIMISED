@@ -164,7 +164,7 @@
                             </div>
                             <br>
                             <div class="form-group">
-                              <label>State - <small>[For Canada Order Only]</small></label>
+                              <label>State - <small>[For USA & Canada Order Only]</small></label>
                               <select class="form-control select2bs4" style="width: 100%;" name="state">
                               <option  value="">Select State</option>
                               <?php
@@ -505,6 +505,11 @@
                                                 <div class="form-group">
                                                     <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Pick Up</button>
                                                 </div>
+                                            </div>
+                                            <div class="col-12">
+                                            <div class="form-group">
+                                                <button type="submit" name="epayment" class="form-control btn btn-info" style="border-radius: 0 !important">Payments First</button>
+                                            </div>
                                             </div>
                                         </div>
                                         </form>

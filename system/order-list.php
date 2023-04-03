@@ -160,7 +160,7 @@
                             </div>
                             <br>
                             <div class="form-group">
-                              <label>State - <small>[For Canada Order Only]</small></label>
+                              <label>State - <small>[For USA & Canada Order Only]</small></label>
                               <select class="form-control select2bs4" style="width: 100%;" name="state">
                               <option  value="">Select State</option>
                               <?php
