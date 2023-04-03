@@ -94,13 +94,9 @@
         $two_percent = 0.02;
         $one_percent = 0.01;
         
-
-        // RESELLER
-        $reseller_rbt = $reseller_fetch['reseller'];
-
-        
         // CROSS SELL
         $cross_sell_total = $direct_fetch['direct'] + $upsell_fetch['upsell'];
+        // echo '<br>';
         $cross_sell = $cross_sell_total * $ten_percent;
 
         // REGULAR REBATES
@@ -110,10 +106,6 @@
         $earning = $rebates_total - $tax;
         $earning_2nd = $earning * $two_percent;
         $earning_3rd = $earning * $one_percent;
-
-        $reseller_earning_10 = $reseller_rbt * $ten_percent;
-        $reseller_tax = $reseller_earning_10 * 0.05;
-        $reseller_total = $reseller_earning_10 - $reseller_tax;
 
         $total_php = $direct_fetch['direct'] + $upsell_fetch['upsell'] + $regular_fetch['regular'];
 
@@ -216,8 +208,15 @@
             
           } elseif ($remarks == 'RESELLER') {
 
+            $reseller_earning_10 = $rebates_total + $reseller_fetch['reseller'] * $ten_percent;
+
             // STOCKIST PERCENTAGE
-            $percentage = $total_php * $five_percent;
+            $percentage = $reseller_fetch['reseller'] * $five_percent;
+            // echo '<br>';
+            // $per_cross = $cross_sell_total * $three_percent;
+
+
+            // $percentage = $percentages + $per_cross;
 
             $stockist_wallet = "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'";
             $stockist_wallet_qry = mysqli_query($connect, $stockist_wallet);
@@ -251,11 +250,11 @@
             $reseller_wallet_sql = mysqli_query($connect, "SELECT * FROM upti_reseller WHERE reseller_code = '$reseller'");
             $reseller_wallet_fetch = mysqli_fetch_array($reseller_wallet_sql);
 
-            $reseller_wallet = $reseller_wallet_fetch['reseller_earning'] + $reseller_total;
+            $reseller_wallet = $reseller_wallet_fetch['reseller_earning'] + $reseller_earning_10;
 
             $wallet_update = mysqli_query($connect, "UPDATE upti_reseller SET reseller_earning = '$reseller_wallet' WHERE reseller_code = '$reseller'");
 
-            $wallet_remarks = 'You Received 10% Comission Reseller Creation Worth of '.$reseller_total.' ['.$country.']';
+            $wallet_remarks = 'You Received 10% Comission Reseller Creation Worth of '.$reseller_earning_10.' ['.$country.']';
 
             $earn_history = "INSERT INTO upti_earning (earning_code, earning_poid, earning_earnings, earning_tax, earning_remarks, earning_status, earning_name) VALUES ('$reseller', '$poid', '$reseller_earning_10', '$tax', '$wallet_remarks', 'Sales', '$reseller')";
             $earn_history_sql = mysqli_query($connect, $earn_history);
@@ -339,6 +338,7 @@
 
 
                 foreach ($pack_stmt as $data_refund) {
+
                   $pack_iCode = $data_refund['p_s_code'];
                   $pack_iQty = $data_refund['p_s_qty'] * $item_qty;
 
