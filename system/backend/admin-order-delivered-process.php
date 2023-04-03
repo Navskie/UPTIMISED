@@ -84,12 +84,20 @@
         $regular_sql = mysqli_query($connect, "SELECT SUM(ol_php) AS regular FROM upti_order_list INNER JOIN upti_code ON ol_code = code_name WHERE code_category = 'PROMO' AND ol_poid = '$poid'");
         $regular_fetch = mysqli_fetch_array($regular_sql);
 
+        $reseller_sql = mysqli_query($connect, "SELECT SUM(ol_php) AS reseller FROM upti_order_list INNER JOIN upti_code ON ol_code = code_name WHERE code_category = 'RESELLER' AND ol_poid = '$poid'");
+        $reseller_fetch = mysqli_fetch_array($reseller_sql);
+
         $ten_percent = 0.10;
         $fourty_percent = 0.40;
         $five_percent = 0.05;
         $three_percent = 0.03;
         $two_percent = 0.02;
         $one_percent = 0.01;
+        
+
+        // RESELLER
+        $reseller_rbt = $regular_fetch['reseller'];
+
         
         // CROSS SELL
         $cross_sell_total = $direct_fetch['direct'] + $upsell_fetch['upsell'];
@@ -103,7 +111,7 @@
         $earning_2nd = $earning * $two_percent;
         $earning_3rd = $earning * $one_percent;
 
-        $reseller_earning_10 = $rebates_total * $ten_percent;
+        $reseller_earning_10 = $reseller_rbt * $ten_percent;
 
         $total_php = $direct_fetch['direct'] + $upsell_fetch['upsell'] + $regular_fetch['regular'];
 

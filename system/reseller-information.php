@@ -1,7 +1,7 @@
 <?php
     session_start();
    
-    // include 'dbms/conn.php';
+    include 'dbms/conn.php';
     include 'function.php';
 
     date_default_timezone_set("Asia/Manila"); 
