@@ -1,7 +1,7 @@
 <?php 
   include 'include/db.php';
 
-  $qdl2 = "SELECT trans_date, trans_poid FROM upti_transaction WHERE trans_status = 'Delivered' AND trans_date = ''";
+  $qdl2 = "SELECT * FROM upti_order_list INNER JOIN  upti_transaction ON ol_poid = trans_poid WHERE ol_seller = ''";
   $delivered_poid = mysqli_query($connect, $qdl2);
 
   foreach ($delivered_poid as $delivered) {

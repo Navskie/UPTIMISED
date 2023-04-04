@@ -133,7 +133,7 @@
                   <tr>
                     <th>Date & Time</th>
                     <th>Poid</th>
-                    <th>Name</th>
+                    <!-- <th>Name</th> -->
                     <th>Comission Tax</th>
                     <th>Deduction</th>
                     <th>Earning</th>
@@ -142,44 +142,47 @@
                   </tr>
                   </thead>
                   <?php
+
+                    // $months = '06';
+                    // $year = '2022';
+                    // $date1 = $months.'-01-'.$year;
+                    // $date2 = date('m-d-Y');
+
                     $wallet_sql = "SELECT * FROM upti_earning WHERE earning_code = '$reseller_id'";
                     $wallet_qry = mysqli_query($connect, $wallet_sql);
                     while ($wallet = mysqli_fetch_array($wallet_qry)) {
                       $status = $wallet['earning_status'];
                       $poid = $wallet['earning_poid'];
 
-                      $get_uid = "SELECT * FROM upti_transaction WHERE trans_poid = '$poid'";
-                      $get_uid_qry = mysqli_query($connect, $get_uid);
-                      $get_uid_fetch = mysqli_fetch_array($get_uid_qry);
-                      $get_num_uid = mysqli_num_rows($get_uid_qry);
+                      // $get_uid = "SELECT * FROM upti_transaction WHERE trans_poid = '$poid'";
+                      // $get_uid_qry = mysqli_query($connect, $get_uid);
+                      // $get_uid_fetch = mysqli_fetch_array($get_uid_qry);
+                      // $get_num_uid = mysqli_num_rows($get_uid_qry);
 
-                      if ($get_num_uid >= 1 ) {
-                        $uid = $get_uid_fetch['trans_seller'];
+                      // if ($get_num_uid >= 1 ) {
+                      //   $uid = $get_uid_fetch['trans_seller'];
 
-                        $get_name = "SELECT * FROM upti_users WHERE users_code = '$uid'";
-                        $get_name_qry = mysqli_query($connect, $get_name);
-                        $get_name_fetch = mysqli_fetch_array($get_name_qry);
-                      } else {
-                        $get_uid = "SELECT * FROM upti_reseller WHERE reseller_poid = '$poid'";
-                        $get_uid_qry = mysqli_query($connect, $get_uid);
-                        $get_uid_fetch = mysqli_fetch_array($get_uid_qry);
+                      //   $get_name = "SELECT * FROM upti_users WHERE users_code = '$uid'";
+                      //   $get_name_qry = mysqli_query($connect, $get_name);
+                      //   $get_name_fetch = mysqli_fetch_array($get_name_qry);
+                      // } else {
+                      //   $get_uid = "SELECT * FROM upti_reseller WHERE reseller_poid = '$poid'";
+                      //   $get_uid_qry = mysqli_query($connect, $get_uid);
+                      //   $get_uid_fetch = mysqli_fetch_array($get_uid_qry);
 
-                        $uid = $get_uid_fetch['reseller_osr'];
+                      //     $uid = $get_uid_fetch['reseller_code'];
+                        
 
-                        if($uid == '') {
-                          $uid = $get_uid_fetch['reseller_code'];
-                        }
-
-                        $get_name = "SELECT * FROM upti_users WHERE users_code = '$uid'";
-                        $get_name_qry = mysqli_query($connect, $get_name);
-                        $get_name_fetch = mysqli_fetch_array($get_name_qry);
-                      }
+                      //   $get_name = "SELECT * FROM upti_users WHERE users_code = '$uid'";
+                      //   $get_name_qry = mysqli_query($connect, $get_name);
+                      //   $get_name_fetch = mysqli_fetch_array($get_name_qry);
+                      // }
 
                   ?>
                   <tr>
                     <td><?php echo $wallet['earning_date'] ?></td>
                     <td><?php echo $wallet['earning_poid'] ?></td>
-                    <td><?php echo $get_name_fetch['users_name'] ?></td>
+                    <!-- <td><?php //echo $get_name_fetch['users_name'] ?></td> -->
                     <td><?php echo $wallet['earning_tax'] ?></td>
                     <td><?php echo $wallet['earning_deduct'] ?></td>
                     <td><?php echo $wallet['earning_earnings'] ?></td>
