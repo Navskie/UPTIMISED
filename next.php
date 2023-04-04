@@ -1,7 +1,7 @@
 <?php 
   include 'include/db.php';
 
-  $qdl2 = "SELECT trans_date, trans_poid FROM upti_transaction WHERE trans_status = 'Delivered'";
+  $qdl2 = "SELECT trans_date, trans_poid FROM upti_transaction WHERE trans_status = 'Delivered' AND trans_date = ''";
   $delivered_poid = mysqli_query($connect, $qdl2);
 
   foreach ($delivered_poid as $delivered) {
