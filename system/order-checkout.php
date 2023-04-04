@@ -55,7 +55,7 @@
 
     if (isset($_POST['checkouts'])) { // isset if
 
-      if ($mode_of_payment == 'E-Payment') {
+      if ($mode_of_payment == 'E-Payment' || $mode_of_payment == 'Cash On Pick Up' && $customer_country == 'TAIWAN') {
         $img_name = $_FILES['file']['name'];
         $img_size = $_FILES['file']['size'];
         $img_tmp = $_FILES['file']['tmp_name'];
@@ -71,7 +71,7 @@
         $new_name = '';
       }
 
-      if ($img_name != '' && $mode_of_payment == 'E-Payment' || $mode_of_payment != 'E-Payment') { // img required
+      if ($img_name != '' && $mode_of_payment == 'E-Payment' || $img_name != '' && $mode_of_payment == 'Cash On Pick Up' || $mode_of_payment != 'E-Payment') { // img required
         
 
         $upsell_sql = mysqli_query($connect, "SELECT SUM(ol_qty) AS upsell FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'UPSELL'");

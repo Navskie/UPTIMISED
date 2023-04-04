@@ -9,7 +9,7 @@
       $replicate_code = $_SESSION['replicate_code'];
     }
 
-    if(isset($_POST['sign-inss'])) {
+    if(isset($_POST['sign-in'])) {
       $us = $_POST['us'];
       $pw = $_POST['pw'];
 
