@@ -30,8 +30,6 @@
     $country = $get_data_fetch['trans_country'];
     $reseller = $get_data_fetch['trans_my_reseller'];
     $admin = $get_data_fetch['trans_admin'];
-    $manager = $get_data_fetch['trans_manager'];
-    $leader = $get_data_fetch['trans_leader'];
     $seller = $get_data_fetch['trans_seller'];
     $customer_id = $get_data_fetch['trans_csid'];
     $state = $get_data_fetch['trans_state'];
@@ -48,7 +46,7 @@
     if ($get_num_rows >= 1) {
       echo "<script>alert('Please clear your new order information first');window.location.href = '../order-list.php';</script>";
     } else {
-      $epayment_process = "INSERT INTO upti_transaction (trans_csid, trans_status, trans_fname, trans_fb, trans_email, trans_contact, trans_address, trans_country, trans_poid, trans_date, trans_my_reseller, trans_admin, trans_manager, trans_leader, trans_seller, trans_state) VALUES ('$customer_id', 'On Order', '$firstname', '$fb', '$email', '$mobile', '$address', '$country', '$poid', '$today_now', '$reseller', '$admin', '$manager', '$leader', '$seller', '$state')";
+      $epayment_process = "INSERT INTO upti_transaction (trans_csid, trans_status, trans_fname, trans_email, trans_contact, trans_address, trans_country, trans_poid, trans_date, trans_my_reseller, trans_admin, trans_seller, trans_state) VALUES ('$customer_id', 'On Order', '$firstname', '$email', '$mobile', '$address', '$country', '$poid', '$today_now', '$reseller', '$admin', '$seller', '$state')";
       $epayment_process_qry = mysqli_query($connect, $epayment_process);
 
       $trans_update = mysqli_query($connect, "UPDATE upti_transaction SET trans_csid = '$customer_id' WHERE trans_fname = '$firstname'");

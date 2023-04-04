@@ -8,7 +8,7 @@
         </button>
         </div>
         <div class="modal-body">
-            <p>Are you sure you want to Re Order For <b><?php echo $order['trans_fname']; ?> <?php echo $order['trans_lname']; ?></b>?</p>
+            <p>Are you sure you want to Re Order For <b><?php echo $order['trans_fname']; ?></b>?</p>
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
