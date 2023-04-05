@@ -5,9 +5,9 @@
   <!-- slide show ENDDDDDDD -->
 
   <?php 
-    $haven = mysqli_query($connect, "SELECT * FROM haven_product WHERE product_status = 'Active'");
+    // $haven = mysqli_query($connect, "SELECT * FROM haven_product WHERE product_status = 'Active'");
   ?>
-    <section>
+    <!-- <section>
         <?php foreach ($haven as $data) { ?>
         <?php
             $id = $data['id'];
@@ -43,7 +43,7 @@
             </div>
         </figure>
         <?php } ?>
-    </section>
+    </section> -->
 
     <div class="container">
       
