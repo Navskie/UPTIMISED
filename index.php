@@ -68,7 +68,7 @@ p {
 </use>
 <h1>SYSTEM MAINTENANCE</h1>
 <h2>
-  We'll be having a systems maintenance activity today, April 19 (PH Time) from 9:00pm to 12:00am. <br>
+  We'll  be having a systems maintenance activity today, April 19 (PH Time) from 9:00pm to 12:00am. <br>
   <br>
   Access to your accounts will be temporarily unavailable during this time. <br>We're just making sure everything will work great.
   <br><br>
