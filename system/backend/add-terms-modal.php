@@ -8,7 +8,7 @@
         <form action="backend/add-terms-process.php?terms=<?php echo $get_transaction_fetch['trans_poid']; ?>" method="post">
             <div class="row">
                 <div class="col-12">
-                    <img src="./images/statement.jpg" alt="" class="img-responsive w-100">
+                    <img src="./images/statements.jpg" alt="" class="img-responsive w-100">
                 </div>
             </div>
         </div>

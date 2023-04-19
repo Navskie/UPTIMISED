@@ -407,6 +407,14 @@
                                 <?php
                                     }
 
+                                    if ($premium > 0 && $upsell == 0 && $direct == 0) {
+                                ?>
+                                    <div class="alert alert-danger text-center" role="alert">
+                                        You cannot checkout premium sku without basic upsell.
+                                    </div>
+                                <?php
+                                    }
+
                                   } else {
 
                                     if ($upsell > 0 && $regular == '' || $direct > 0 && $regular == '') {

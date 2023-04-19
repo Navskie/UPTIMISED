@@ -86,7 +86,14 @@
             header('location: order-list.php');
             // echo 'false';
           } else {
-            include 'checkout.php';
+
+            if ($premium > 0 && $upsell == 0 && $direct == 0) {
+              flash("warning", " You cannot checkout premium sku without basic upsell.");
+              header('location: order-list.php');
+            } else {
+              include 'checkout.php';
+            }
+            
           }
 
         } else { // kung may premium end
