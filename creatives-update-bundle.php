@@ -22,7 +22,6 @@
         $p_benefits = $product['p_benefits'];
         $p_ingredients = $product['p_ingredients'];
         $p_howtouse = $product['p_howtouse'];
-        $p_tag = $product['p_tag'];
     } else {
         $main_img = '';
         $one_img = '';
@@ -32,7 +31,6 @@
         $p_benefits = '';
         $p_ingredients = '';
         $p_howtouse = '';
-        $p_tag = '';
     }
 
     $code_stmt = mysqli_query($connect, "SELECT * FROM upti_code WHERE code_name = '$code'");

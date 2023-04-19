@@ -97,7 +97,7 @@
             $get_order_list_num = mysqli_num_rows($get_order_list_qry);            
 
             // Order QTY
-            $order_sql = "SELECT SUM(ol_qty) AS qty FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'PROMO'";
+            $order_sql = "SELECT SUM(ol_qty) AS qty FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'RESELLER'";
             $order_qry = mysqli_query($connect, $order_sql);
             $order_fetch = mysqli_fetch_array($order_qry);
 
@@ -492,6 +492,11 @@
                                             <div class="form-group">
                                                 <button type="submit" name="epayment" class="form-control btn btn-info" style="border-radius: 0 !important">Payments First</button>
                                             </div>
+                                            
+                                                <div class="form-group">
+                                                    <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Pick Up</button>
+                                                </div>
+                                        
                                         </form>
                                     </div>
                                     <!-- Payment Method End -->
@@ -698,7 +703,7 @@
                                 } else {
                                     $surcharge = 0;
                                 }
-
+                                // echo $shipping_fetch['shipping_price'];
                                 // Total Amount
                                 $total_amount = $subtotal + $surcharge + $shipping;
 

@@ -31,20 +31,11 @@
 
     $stock_pending2 = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_code = '$usercode' AND stockist_country = '$cc'");
     $counts2 = mysqli_num_rows($stock_pending2);
-    if ($counts2 != 0 && $role != 'WEBSITE') {
+
 ?>
-    <?php include 'include/preloader.php'; ?>
-    <?php include 'include/navbar.php'; ?>
-    <?php include 'include/sidebar.php'; ?>
-<?php
- } else {
-?>
-    <?php include 'include/preloader.php'; ?>
-    <?php include 'include/stockist-navbar.php'; ?>
-    <?php include 'include/stockist-bar.php'; ?>
-<?php
- }
-?>
+  <?php include 'include/preloader.php'; ?>
+  <?php include 'include/navbar.php'; ?>
+  <?php include 'include/sidebar.php'; ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

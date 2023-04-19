@@ -80,7 +80,6 @@
         $benefits = $_POST['benefits'];
         $ingredients = $_POST['ingredients'];
         $howtouse = $_POST['howtouse'];
-        $tag = $_POST['tag'];
 
         $check_pro_stmt = mysqli_query($connect, "SELECT * FROM upti_product WHERE p_code = '$code'");
         if (mysqli_num_rows($check_pro_stmt) > 0) {
@@ -90,7 +89,6 @@
             p_benefits = '$benefits',
             p_ingredients = '$ingredients',
             p_howtouse = '$howtouse',
-            p_tag = '$tag',
             p_m_img = '$main_name',
             p_1_img = '$second_name',
             p_2_img = '$third_name',
@@ -104,7 +102,6 @@
                     p_benefits,
                     p_ingredients,
                     p_howtouse,
-                    p_tag,
                     p_m_img,
                     p_1_img,
                     p_2_img,
@@ -115,7 +112,6 @@
                     '$benefits',
                     '$ingredients',
                     '$howtouse',
-                    '$tag',
                     '$main_name',
                     '$second_name',
                     '$third_name',
@@ -141,8 +137,6 @@
             WHERE package_code = '$code';
             ";
             mysqli_query($connect, $items_sql);
-
-            $code_tag = mysqli_query($connect, "SELECT * FROM upti_code SET code_tag = '$tag' WHERE code_name = '$code'");
         } else {
             $items_sql = mysqli_query($connect, "
                 INSERT INTO upti_package (

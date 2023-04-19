@@ -211,12 +211,12 @@
             $reseller_earning_10 = $rebates_total + $reseller_fetch['reseller'] * $ten_percent;
 
             // STOCKIST PERCENTAGE
-            $percentage = $reseller_fetch['reseller'] * $five_percent;
+            $percentages = $reseller_fetch['reseller'] * $five_percent;
             // echo '<br>';
-            // $per_cross = $cross_sell_total * $three_percent;
+            $per_cross = $cross_sell_total * $three_percent;
 
 
-            // $percentage = $percentages + $per_cross;
+            $percentage = $percentages + $per_cross;
 
             $stockist_wallet = "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'";
             $stockist_wallet_qry = mysqli_query($connect, $stockist_wallet);

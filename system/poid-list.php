@@ -290,11 +290,13 @@
 
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#delivered<?php echo $id; ?>" title="Delivered">Delivered</button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancel<?php echo $id; ?>" title="Cancel">Cancel</button>
+                                        <?php if ($cc == 'PHILIPPINES' && $role == 'BRANCH') { ?>
+                                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#rts<?php echo $id; ?>" title="RTS">RTS</button>
+                                        <?php } ?>
                                         
                                         <?php } elseif ($status == 'Delivered') { ?>
 
                                         <span class="badge badge-success">Delivered Orders</span>&nbsp;&nbsp;
-
                                         
                                         <?php } elseif ($status == 'Canceled') { ?>
 
@@ -307,6 +309,10 @@
                                         <?php } elseif ($status == 'On Process' && $cc == 'PHILIPPINES' && $role == 'BRANCH') { ?>
 
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#intransit<?php echo $id; ?>" title="In Transit">In Transit</button>
+
+                                        <?php } elseif ($status == 'In Transit' && $cc == 'PHILIPPINES' && $role == 'BRANCH') { ?>
+
+                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#rts<?php echo $id; ?>" title="RTS">RTS</button>
 
                                         <?php } elseif ($status == 'On Order') { ?>
 

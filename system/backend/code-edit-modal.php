@@ -29,6 +29,7 @@
                           <option value="RESELLER">RESELLER</option>
                           <option value="UPSELL">UPSELL</option>
                           <option value="DIRECT">DIRECT</option>
+                          <option value="PREMIUM">PREMIUM</option>
                         </select> 
                     </div>
                 </div>

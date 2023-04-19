@@ -71,39 +71,87 @@
         $new_name = '';
       }
 
-        if ($img_name != '' && $mode_of_payment == 'E-Payment' || $img_name != '' && $mode_of_payment == 'Cash On Pick Up' || $mode_of_payment != 'E-Payment') { // img required
+      if ($img_name != '' && $mode_of_payment == 'E-Payment' || $img_name != '' && $mode_of_payment == 'Cash On Pick Up' || $mode_of_payment != 'E-Payment') { // img required
         
-        include 'premium-promo.php';
+        $upsell_sql = mysqli_query($connect, "SELECT SUM(ol_qty) AS upsell FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'UPSELL'");
+        $upsell_fetch = mysqli_fetch_array($upsell_sql);
+
+        $direct_sql = mysqli_query($connect, "SELECT SUM(ol_qty) AS direct FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'DIRECT'");
+        $direct_fetch = mysqli_fetch_array($direct_sql);
+
+        $regular_sql = mysqli_query($connect, "SELECT SUM(ol_qty) AS regular FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'PROMO'");
+        $regular_fetch = mysqli_fetch_array($regular_sql);
+
+        // PREMIUM
+        $premium_sql = mysqli_query($connect, "SELECT SUM(ol_qty) AS premium FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'PREMIUM'");
+        $premium_fetch = mysqli_fetch_array($premium_sql);
+
+        $upsell = $upsell_fetch['upsell'];
+        // echo '<br>';
+        $direct = $direct_fetch['direct'];
+        // echo '<br>';
+        $regular = $regular_fetch['regular'];
+        // echo '<br>';
+        $premium = $premium_fetch['premium'] ;
 
         if ($premium > 0) { // kung may premium start
-          $up2 = $premium * 2 + $regular;
-          $dir2 = $premium * 2 + $regular;
-          // echo '<br>';
-          
+          echo 'Regular : ';
+          echo $regular;
+          echo '<br>';
+          echo 'Premium : ';
+          echo $premium;
+          echo '<br>';
+          $premium_direct = $direct - $regular;
+          $premium_upsell = $upsell - $regular;
+          if ($direct == 0 && $regular > 0) {
+            $premium_direct = 0;
+          } elseif ($upsell == 0 && $regular > 0) {
+            $premium_upsell = 0;
+          }
+          echo 'Direct : ';
+          echo $premium_direct;
+          echo '<br>';
+          echo 'Upsell : ';
+          echo $premium_upsell;
+          echo '<br>';
+          echo 'Total Upsell : ';
+          echo $up2 = $premium * 2;
+          echo '<br>';
+          echo 'Total Direct : ';
+          echo $dir2 = $premium * 2;
+          echo '<br>';
 
-          if ($upsell > $up2 || $direct > $dir2) {
-            flash("warning", "Too many cross item. checkout no more");
-            header('location: order-list.php');
-            // echo 'false';
+          if ($premium_upsell >= $up2 || $premium_direct >= $dir2) {
+            // flash("warning", "Too many cross item. checkout no more");
+            // header('location: order-list.php');
+
+            echo 'false';
           } else {
-            include 'checkout.php';
+
+            // $regular_upsell = $premium * 2;
+            // echo $cross_upsell = $up2 - $regular_upsell;
+            // echo '<br>';
+            // echo $cross_direct = $dir2 - $regular_upsell;
+            // echo '<br>';
+
+            // if ($cross_upsell >= $upsell || $cross_direct >= $direct) {
+            //   echo 'TRUE';
+            // } else {
+            //   echo 'FALSE';
+            // }
+            
+            echo 'true';
+
           }
 
         } else { // kung may premium end
 
-          if ($upsell > 0 && $regular == '' || $direct > 0 && $regular == '') { // wag mo ilabas tie up mo boi
+          if ($upsell > 0 && $regular == '' || $direct > 0 && $regular == '' || $premium < 0) { // wag mo ilabas tie up mo boi
             flash("warning", "you only have cross sell and direct sell order. checkout no more");
             header('location: order-list.php');
           } else {                
 
-            if ($upsell <= $regular && $direct <= $regular) { // one is to one upsell and direct sales
-
-            include 'checkout.php';
-
-            } else {
-              flash("warning", "Youve exceeded the maximum quantity allowed. You are only allowed to add 1 premium and 1 basic upsell. Please edit your quantity. Thank you!");
-              header('location: order-list.php');
-            } // one is to one end
+          //   // include 'checkout.php';
 
           } // wag mo ilabas tie up mo boi
 

@@ -22,8 +22,8 @@
                                 <thead>
                                     <tr>
                                       <th class="text-center">Poid</th>
-                                      <th class="text-center">Name</th>
                                       <th class="text-center">Username</th>
+                                      <th class="text-center">Name</th>
                                       <th class="text-center">Address</th>
                                       <th class="text-center">Mobile</th>
                                       <th class="text-center">Email</th>
@@ -32,15 +32,20 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                    $account = "SELECT * FROM upti_reseller INNER JOIN upti_transaction ON upti_transaction.trans_poid = upti_reseller.reseller_poid INNER JOIN upti_users ON upti_reseller.reseller_code = upti_users.users_code WHERE upti_transaction.trans_seller = '$creator_code'";
+                                    $account = "SELECT * FROM upti_reseller INNER JOIN upti_transaction ON trans_poid = reseller_poid WHERE trans_seller = '$creator_code' GROUP BY reseller_poid";
                                     $account_qry = mysqli_query($connect, $account);
                                     $number = 1;
                                     while ($account_fetch = mysqli_fetch_array($account_qry)) {
+                                      $poid = $account_fetch['reseller_poid'];
+
+                                      $account_qry_sql = "SELECT users_username FROM upti_users WHERE users_poid = '$poid'";
+                                      $account_query = mysqli_query($connect, $account_qry_sql);
+                                      $account_fetch1 = mysqli_fetch_array($account_query);
                                 ?>
                                   <tr>
-                                    <td class="text-center"><?php echo $poid = $account_fetch['reseller_poid'] ?></td>
+                                    <td class="text-center"><?php echo $poid  ?></td>
+                                    <td class="text-center"><?php echo $account_fetch1['users_username']  ?></td>
                                     <td class="text-center"><?php echo $account_fetch['reseller_name'] ?></td>
-                                    <td class="text-center"><?php echo $account_fetch['users_username'] ?></td>
                                     <td class="text-center"><?php echo $account_fetch['trans_address'] ?></td>
                                     <td class="text-center"><?php echo $account_fetch['trans_contact'] ?></td>
                                     <td class="text-center">

@@ -12,11 +12,11 @@
     $employees = $get_country_fetch['users_employee'];
 
     if ($employees == 'Canada') {
-      $employee = 'CANADA';
+      echo $employee = 'CANADA';
     } elseif ($employees == 'USA') {
-      $employee = 'United States';
+      echo $employee = 'United States';
     } else {
-      $employee = $employees;
+      echo $employee = $employees;
     }
 ?>
   <!-- Content Wrapper. Contains page content -->

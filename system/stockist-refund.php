@@ -116,10 +116,11 @@
                       </thead>
                       <?php
 
-                        $wallet_sql = "SELECT * FROM stockist_earning WHERE e_id = '$SCode' AND e_country = '$country'";
+                        echo $wallet_sql = "SELECT * FROM stockist_earning WHERE e_id = '$SCode' AND e_country = '$country'";
                         
                         $wallet_qry = mysqli_query($connect, $wallet_sql);
                         while ($wallet = mysqli_fetch_array($wallet_qry)) {
+
                       ?>
                       <tr>
                         <td class="text-center"><?php echo $wallet['e_date'] ?> - <?php echo $wallet['e_time'] ?></td>

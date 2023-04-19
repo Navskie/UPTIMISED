@@ -155,6 +155,12 @@
 
                                 if (isset($_POST['process'])) {
 
+                                    // $on = $_POST['payment'];
+
+                                    // if () {
+
+                                    // }
+
                                     $req_sql = "INSERT INTO stockist_request (ref_date, req_reference, req_name, ref_code, req_country, req_amount, req_status, req_state) VALUES ('$dates', '$ref','$po_name', '$Ucode', '$country','$total','Pending', '$state')";
                                     $req_qry = mysqli_query($connect, $req_sql);
                                     // echo '<br>';
@@ -182,7 +188,18 @@
                         </div>
                         <div class="col-12">
                             <br><br>
-                                <div class="form-group"><button class="btn btn-success btn-sm form-control rounded-0" name="process">PROCEED</button></div>
+                            <div class="row">
+                              <div class="col-6">
+                               
+                              </div>
+
+                              <div class="col-6">
+                                
+                                <div class="form-group">
+                                  <button class="btn btn-success btn-sm form-control rounded-0" name="process">PROCEED</button>
+                                </div>
+                              </div>
+                            </div>                                
                             </form>
                             <?php } ?>
                         </div>

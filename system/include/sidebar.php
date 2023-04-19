@@ -722,10 +722,11 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="s_ph.php" class="nav-link">
-              <i class="nav-icon uil uil-globe"></i>
+            <a href="inventory.php" class="nav-link">
+              <i class="nav-icon uil uil-ticket"></i>
               <p>
-                Stocks
+                Inventory
+                <span class="badge badge-danger right">New</span>
               </p>
             </a>
           </li>
@@ -2120,6 +2121,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="inventory.php" class="nav-link">
+              <i class="nav-icon uil uil-ticket"></i>
+              <p>
+                Inventory
+                <span class="badge badge-danger right">New</span>
+              </p>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a href="admin-sold-item.php" class="nav-link">
               <i class="nav-icon uil uil-percentage"></i>
@@ -2228,6 +2238,14 @@
                 <a href="accounting-request.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Reseller Request</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="accounting-stockist.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stockist Wallet</p>
                 </a>
               </li>
             </ul>

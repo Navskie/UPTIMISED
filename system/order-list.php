@@ -97,7 +97,7 @@
             $get_order_list_num = mysqli_num_rows($get_order_list_qry);            
 
             // Order QTY
-            $order_sql = "SELECT SUM(ol_qty) AS qty FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'PROMO'";
+            $order_sql = "SELECT SUM(ol_qty) AS qty FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE ol_poid = '$poid' AND code_category = 'PROMO' OR  ol_poid = '$poid' AND code_category = 'PREMIUM'";
             $order_qry = mysqli_query($connect, $order_sql);
             $order_fetch = mysqli_fetch_array($order_qry);
 
@@ -356,11 +356,13 @@
                                                     <select class="form-control select2bs4" style="width: 100%;" name="item_code">
                                                         <?php
                                                             $product_sql = "SELECT items_code, items_desc, code_category FROM upti_items INNER JOIN upti_code ON items_code = code_name WHERE 
-                                                            items_status = 'Active' AND code_category = 'PROMO'
+                                                            items_status = 'Active' AND code_category = 'PROMO' OR
+                                                            items_status = 'Active' AND code_category = 'PREMIUM'
                                                             UNION 
                                                             SELECT package_code, package_desc, code_category FROM upti_package INNER JOIN upti_code ON package_code = code_name 
                                                             WHERE 
-                                                            code_category != 'RESELLER' AND code_category = 'PROMO' AND package_status = 'Active'";
+                                                            code_category != 'RESELLER' AND code_category = 'PROMO' AND package_status = 'Active' OR
+                                                            code_category != 'RESELLER' AND code_category = 'PREMIUM' AND package_status = 'Active'";
                                                             $product_qry = mysqli_query($connect, $product_sql);
                                                         ?>
                                                         <option selected="selected">Select Items</option>
@@ -390,6 +392,45 @@
                             <div class="card-body login-card-body">
                                 <h5 class="text-info">Order List</h5>
                                 <hr>
+                                <?php 
+                                  include 'premium-promo.php';
+
+                                  if ($premium > 0) {
+                                    $up2 = $premium * 2 + $regular;
+                                    $dir2 = $premium * 2 + $regular;
+
+                                    if ($upsell > $up2 || $direct > $dir2) {
+                                ?>
+                                  <div class="alert alert-danger text-center" role="alert">
+                                  You've exceeded the maximum quantity allowed. You are only allowed to add 2 premium and 2 basic upsell. Please edit your quantity.
+                                  </div>
+                                <?php
+                                    }
+
+                                  } else {
+
+                                    if ($upsell > 0 && $regular == '' || $direct > 0 && $regular == '') {
+                                ?>
+                                  <div class="alert alert-danger text-center" role="alert">
+                                  You only have cross sell and direct sell order. checkout no more
+                                  </div>
+                                <?php
+                                    } else {
+
+                                      if ($upsell <= $regular && $direct <= $regular) {
+
+                                      } else {
+                                ?>
+                                  <div class="alert alert-danger text-center" role="alert">
+                                  You've exceeded the maximum quantity allowed. You are only allowed to add 1 premium and 1 basic upsell. Please edit your quantity.
+                                  </div>
+                                <?php
+                                      }
+
+                                    }
+
+                                  }
+                                ?>
                                 <!-- Order List Table Start -->
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>

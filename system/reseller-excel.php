@@ -9,6 +9,8 @@
     <tr>
         <th>Reseller Name</th>
         <th>Reseller Country</th>
+        <th>Date Added</th>
+        <th>Seller</th>
         <th>Reseller Code</th>
         <th>Reseller Mobile</th>
         <th>Reselelr Address</th>
@@ -20,17 +22,25 @@
     // $excelData = implode('\t', array_values($fields)).'\n';
 
     // Fetch Records From Database
-    $export_sql = "SELECT reseller_name, reseller_country, reseller_code, reseller_mobile, reseller_address, users_status FROM upti_users INNER JOIN upti_reseller ON upti_reseller.reseller_code = upti_users.users_code WHERE users_status = 'Active' AND reseller_country = '$country' AND users_role = 'UPTIRESELLER'";
+    $export_sql = "SELECT trans_date, trans_seller, trans_country, reseller_name, reseller_country, reseller_code, reseller_mobile, reseller_address, users_status FROM upti_users INNER JOIN upti_reseller ON reseller_code = users_code INNER JOIN upti_transaction ON trans_poid = reseller_poid WHERE users_status = 'Active' AND trans_country = '$country' AND users_role = 'UPTIRESELLER' GROUP BY reseller_code";
     // echo '<br>';
     $export_qry = mysqli_query($connect, $export_sql);
     $export_num = mysqli_num_rows($export_qry);
 
     if($export_num > 0) {
-      while($row = mysqli_fetch_array($export_qry)) {          
+      while($row = mysqli_fetch_array($export_qry)) {  
+        
+          $seller = $row['trans_seller'];
+
+          $name_sql = mysqli_query($connect, "SELECT users_name FROM upti_users WHERE users_code = '$seller'");
+          $name_fetch = mysqli_fetch_array($name_sql);
+
           $output .='
               <tr>
                   <td>'.$row['reseller_name'].'</td>
-                  <td>'.$row['reseller_country'].'</td>
+                  <td>'.$row['trans_country'].'</td>
+                  <td>'.$row['trans_date'].'</td>
+                  <td>'.$name_fetch['users_name'].'</td>
                   <td>'.$row['reseller_code'].'</td>
                   <td>'.$row['reseller_mobile'].'</td>
                   <td>'.$row['reseller_address'].'</td>
