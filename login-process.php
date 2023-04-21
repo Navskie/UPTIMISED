@@ -25,124 +25,64 @@
         if($check_account_num == 1) {
           $role = $check_account_fetch['users_role'];
           if($role == 'UPTIMAIN') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/uptimain.php');
-          } elseif($role == 'UPTIMAINS') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
-            header('Location: system/uptimain.php');
-          } elseif($role == 'UPTIHR') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+          } elseif($role == 'MARKETING') {
+            include 'login-role.php';
+            header('Location: system/marketing/marketing.php');
+          } elseif($role == 'HR') {
+            include 'login-role.php';
             header('Location: system/uptimain.php');
           } elseif($role == 'UPTIRESELLER') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/reseller.php');
           } elseif($role == 'UPTIMANAGER') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/manager.php');
           } elseif($role == 'UPTILEADER') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/teamleader.php');
           } elseif($role == 'UPTIOSR') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/osr.php');
           } elseif($role == 'UPTICREATIVES') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: creatives.php');
           } elseif($role == 'UPTICSR') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/branch.php');
           } elseif($role == 'SPECIAL') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/admin-reseller.php');
           } elseif($role == 'UPTIACCOUNTING') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/accounting.php');
           } elseif($role == 'IT/Sr Programmer') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/navskie.php');
           } elseif($role == 'BRANCH') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/branch.php');
           } elseif($role == 'ADS') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/ads.php');
           }  elseif($role == 'LOGISTIC') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/logistic.php');
           }  elseif($role == 'DHL') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/dhl.php');
           }  elseif($role == 'Customer') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: shop.php');
           } elseif($role == 'WEBSITE') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/cs-onprocess-order.php');
           } elseif($role == 'HAVEN CSR') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/admin/index.php');
           } elseif($role == 'HAVEN ADMIN') {
-            $_SESSION['status'] = 'valid';
-            $_SESSION['uid'] = $check_account_fetch['users_id'];
-            $_SESSION['code'] = $check_account_fetch['users_code'];
-            $_SESSION['role'] = $check_account_fetch['users_role'];
+            include 'login-role.php';
             header('Location: system/admin/admin.php');
           } 
         } else {

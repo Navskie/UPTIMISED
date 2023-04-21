@@ -38,8 +38,8 @@
       if ($_SESSION['status'] == 'valid' AND $_SESSION['role'] == 'UPTIMAIN') {
         header('Location: system/uptimain.php');
       }
-      elseif ($_SESSION['status'] == 'valid' AND $_SESSION['role'] == 'UPTIMAINS') {
-        header('Location: system/uptimain.php');
+      elseif ($_SESSION['status'] == 'valid' AND $_SESSION['role'] == 'MARKETING') {
+        header('Location: system/marketing/marketing.php');
       }
       elseif ($_SESSION['status'] == 'valid' AND $_SESSION['role'] == 'UPTIHR') {
         header('Location: system/uptimain.php');
