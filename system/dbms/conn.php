@@ -11,5 +11,8 @@
     $day = date('d');
     $date1 = $month.'-01-'.$year;
     $date2 = date('m-d-Y');
+
+    $date = date('m-d-Y');
+    $time = date('h:i:sa');
     
 ?>  

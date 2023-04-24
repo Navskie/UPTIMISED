@@ -13,10 +13,10 @@
 
           $epayment_process = "INSERT INTO upti_items (items_code, items_desc, items_points, items_status) VALUES ('$code', '$desc', '$points', 'Active')";
           $epayment_process_qry = mysqli_query($connect, $epayment_process);
-          echo "<script>alert('Data has been Added successfully.');window.location.href = 'item-list.php';</script>";
+          echo "<script>alert('Data has been Added successfully.');window.location.href = 'single.php';</script>";
             
         } else {
-            echo "<script>alert('Duplicate Item code is not allowed.');window.location.href = 'item-list.php';</script>";
+            echo "<script>alert('Duplicate Item code is not allowed.');window.location.href = 'single.php';</script>";
         }
 
     }
@@ -31,7 +31,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="item-list.php" method="post">
+        <form action="single.php" method="post">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">

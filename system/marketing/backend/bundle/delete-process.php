@@ -1,19 +1,10 @@
-<div class="modal fade" id="delete<?php echo $package['id']; ?>">
-    <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h4 class="modal-title">Warning</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body text-center">
-            <i class="fa fa-exclamation" style="font-size:48px;color:red"></i><br><br><p>Are you sure you want to Delete this Package?</p>
-        </div>
-        <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default border-info rounded-0" data-dismiss="modal">Close</button>
-            <a class="btn btn-danger rounded-0" href="backend/package-delete-process.php?id=<?php echo $package['id']; ?>">Confirm</a>
-        </div>
-    </div>
-    </div>
-</div>
+<?php
+    include '../../../dbms/conn.php';
+
+    $id = $_GET['id'];
+
+    $delete_info = "DELETE FROM upti_package WHERE id = '$id'";
+    $delete_qry = mysqli_query($connect, $delete_info);
+
+    echo "<script>alert('Data has been Deleted successfully.');window.location.href = '../../bundle.php';</script>";
+?>

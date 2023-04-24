@@ -16,10 +16,10 @@
                 $packages = "INSERT INTO upti_package (package_code, package_desc, package_points, package_status) VALUES ('$pack_code', '$pack_desc' , '$pack_points', 'Active')";
                 $package_qry = mysqli_query($connect, $packages);
 
-                echo "<script>alert('Data has been Added successfully.');window.location.href = 'item-package.php';</script>";
+                echo "<script>alert('Data has been Added successfully.');window.location.href = 'bundle.php';</script>";
             }
         } else {
-            echo "<script>alert('Duplicate Package code is not allowed.');window.location.href = 'item-package.php';</script>";
+            echo "<script>alert('Duplicate Package code is not allowed.');window.location.href = 'bundle.php';</script>";
         }
 
     }

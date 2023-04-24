@@ -47,15 +47,27 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="item-code.php" class="nav-link">
+            <a href="code.php" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Item Code</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="item-country-currency.php" class="nav-link">
+            <a href="country.php" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Country</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="territory.php" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Territory</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="state.php" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>State</p>
             </a>
           </li>
 
