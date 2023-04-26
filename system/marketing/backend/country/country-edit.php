@@ -8,7 +8,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="backend/country/edit-process.php?id=<?php echo $country['id']; ?>" method="post">
+        <form action="backend/country/edit-process?id=<?php echo $country['id']; ?>" method="post">
             <div class="row">
                 <div class="col-12">
                     <label for="">Country</label>

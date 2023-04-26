@@ -22,20 +22,20 @@
         $status_change = "UPDATE upti_code SET code_status = '$status', code_category = '$category', code_main = '$main' WHERE id = '$id'";
         $status_qry = mysqli_query($connect, $status_change);
 
-        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../code.php';</script>";
+        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../code';</script>";
       } else {
         $code_check = "SELECT * FROM upti_code WHERE code_name = '$name'";
         $code_check_qry = mysqli_query($connect, $code_check);
         $code_num = mysqli_num_rows($code_check_qry);
 
         if ($code_num == 1) {
-          echo "<script>alert('Duplicate Code is not allowed.');window.location.href = '../../code.php';</script>";
+          echo "<script>alert('Duplicate Code is not allowed.');window.location.href = '../../code';</script>";
         } else {
           $status_change = "UPDATE upti_code SET code_status = '$status', code_name = '$name', code_category = '$category', code_main = '$main' WHERE id = '$id'";
           $status_qry = mysqli_query($connect, $status_change);
         }
 
-        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../code.php';</script>";
+        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../code';</script>";
       }
       
       $remarks = "CODE ".$name." HAS BEEN UPDATE BY ".$my_name;

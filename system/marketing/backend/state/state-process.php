@@ -26,7 +26,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="state.php" method="post">
+        <form action="state" method="post">
             <div class="row">
                 <div class="col-12">
                     <label for="">State</label>

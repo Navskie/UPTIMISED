@@ -31,7 +31,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="single.php" method="post">
+        <form action="single" method="post">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">

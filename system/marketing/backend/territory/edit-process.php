@@ -10,6 +10,6 @@
         $epayment_process = "UPDATE upti_territory SET territory_name = '$territory' WHERE id = '$id'";
         $epayment_process_qry = mysqli_query($connect, $epayment_process);
 
-        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../territory.php';</script>";
+        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../territory';</script>";
     }
 ?>

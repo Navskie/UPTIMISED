@@ -17,6 +17,6 @@
       $epayment_process = "UPDATE upti_state SET state_name = '$state', state_country = '$country', state_territory = '$territory', state_stockist = '$stockist' WHERE id = '$id'";
       $epayment_process_qry = mysqli_query($connect, $epayment_process);
 
-      echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../state.php';</script>";
+      echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../state';</script>";
     }
 ?>

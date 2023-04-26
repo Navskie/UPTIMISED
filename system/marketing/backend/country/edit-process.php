@@ -10,6 +10,6 @@
         $epayment_process = "UPDATE upti_country_currency SET cc_country = '$country' WHERE id = '$id'";
         $epayment_process_qry = mysqli_query($connect, $epayment_process);
 
-        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../country.php';</script>";
+        echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../country';</script>";
     }
 ?>

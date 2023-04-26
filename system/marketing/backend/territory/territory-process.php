@@ -19,7 +19,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="territory.php" method="post">
+        <form action="territory" method="post">
             <div class="row">
                 <div class="col-12">
                     <label for="">Territory</label>

@@ -12,7 +12,7 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default border-info rounded-0" data-dismiss="modal">Close</button>
-            <a class="btn btn-danger rounded-0" href="backend/bundle/delete-process.php?id=<?php echo $package['id']; ?>">Confirm</a>
+            <a class="btn btn-danger rounded-0" href="backend/bundle/delete-process?id=<?php echo $package['id']; ?>">Confirm</a>
         </div>
     </div>
     </div>

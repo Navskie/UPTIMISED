@@ -56,7 +56,7 @@
             </button>
         </div>
         <div class="modal-body">
-        <form action="code.php" method="post">
+        <form action="code" method="post">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">

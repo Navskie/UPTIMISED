@@ -6,5 +6,5 @@
     $delete_info = "DELETE FROM upti_territory WHERE id = '$id'";
     $delete_qry = mysqli_query($connect, $delete_info);
 
-    echo "<script>alert('Data has been Deleted successfully.');window.location.href = '../../territory.php';</script>";
+    echo "<script>alert('Data has been Deleted successfully.');window.location.href = '../../territory';</script>";
 ?>

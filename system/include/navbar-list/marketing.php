@@ -16,23 +16,23 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">Account Settings</span>
           <div class="dropdown-divider"></div>
-          <a href="main-information.php" class="dropdown-item">
+          <a href="main-information" class="dropdown-item">
             
             <i class="fas fa-user mr-2"></i> Information
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="../hiddenhaven/index.php" class="dropdown-item">
+          <a href="../hiddenhaven/index" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Hidden Haven
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="../index.php" class="dropdown-item">
+          <a href="../index" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Uptimised Site
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="../../logout.php" class="dropdown-item">
+          <a href="../../logout" class="dropdown-item">
           <i class="fas fa-sign-out-alt mr-2"></i> Logout
             <!-- <span class="float-right text-sm">Logout</span> -->
           </a>

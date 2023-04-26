@@ -19,7 +19,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="country.php" method="post">
+        <form action="country" method="post">
             <div class="row">
                 <div class="col-12">
                     <label for="">Country</label>

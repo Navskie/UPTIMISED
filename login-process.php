@@ -29,7 +29,7 @@
             header('Location: system/uptimain.php');
           } elseif($role == 'MARKETING') {
             include 'login-role.php';
-            header('Location: system/marketing/marketing.php');
+            header('Location: system/marketing/marketing');
           } elseif($role == 'HR') {
             include 'login-role.php';
             header('Location: system/uptimain.php');

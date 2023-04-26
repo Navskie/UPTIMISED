@@ -8,7 +8,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form action="backend/single/edit-process.php?id=<?php echo $item['id']; ?>" method="post">
+        <form action="backend/single/edit-process?id=<?php echo $item['id']; ?>" method="post">
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">

@@ -6,5 +6,5 @@
     $delete_info = "DELETE FROM upti_country_currency WHERE id = '$id'";
     $delete_qry = mysqli_query($connect, $delete_info);
 
-    echo "<script>alert('Data has been Deleted successfully.');window.location.href = '../../country.php';</script>";
+    echo "<script>alert('Data has been Deleted successfully.');window.location.href = '../../country';</script>";
 ?>

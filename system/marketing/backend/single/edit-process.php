@@ -18,11 +18,11 @@
 
         if ($code == $item_code) {
             if ($code == '') {
-                echo "<script>alert('Item Code and Category is Required.');window.location.href = '../../single.php';</script>";
+                echo "<script>alert('Item Code and Category is Required.');window.location.href = '../../single';</script>";
             } else {
                 $update_item = "UPDATE upti_items SET items_status = '$stats', items_code = '$code', items_desc = '$desc', items_points = '$points' WHERE id = '$id'";
                 $update_item_qry = mysqli_query($connect, $update_item);
-                echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../single.php';</script>";
+                echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../single';</script>";
             }
         } else {
             $check_item = "SELECT * FROM upti_items WHERE items_code = '$code'";
@@ -31,14 +31,14 @@
 
             if ($check_item_num == 0) {
                 if ($code == '') {
-                    echo "<script>alert('Item Code and Category is Required.');window.location.href = '../../single.php';</script>";
+                    echo "<script>alert('Item Code and Category is Required.');window.location.href = '../../single';</script>";
                 } else {
                     $update_item = "UPDATE upti_items SET items_status = '$stats', items_code = '$code', items_desc = '$desc', items_points = '$points' WHERE id = '$id'";
                     $update_item_qry = mysqli_query($connect, $update_item);
-                    echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../single.php';</script>";
+                    echo "<script>alert('Data has been Updated successfully.');window.location.href = '../../single';</script>";
                 }
             } else {
-                echo "<script>alert('Duplicate Item code is not allowed.');window.location.href = '../../single.php';</script>";
+                echo "<script>alert('Duplicate Item code is not allowed.');window.location.href = '../../single';</script>";
             }
         }
     }

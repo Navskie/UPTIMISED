@@ -18,7 +18,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item menu-open">
-            <a href="uptimain.php" class="nav-link">
+            <a href="marketing" class="nav-link">
             <i class="nav-icon uil uil-dashboard"></i>
               <p>
                 Dashboard
@@ -26,7 +26,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="stock.php" class="nav-link">
+            <a href="slide" class="nav-link">
+              <i class="nav-icon uil uil-trophy"></i>
+              <p>
+                Top Banner
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="stock" class="nav-link">
               <i class="nav-icon uil uil-globe"></i>
               <p>
                 Stocks
@@ -35,37 +43,37 @@
           </li>
           <li class="nav-header">Manage Items</li>
           <li class="nav-item">
-            <a href="single.php" class="nav-link">
+            <a href="single" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Single Item</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="bundle.php" class="nav-link">
+            <a href="bundle" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Bundle Item</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="code.php" class="nav-link">
+            <a href="code" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Item Code</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="country.php" class="nav-link">
+            <a href="country" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Country</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="territory.php" class="nav-link">
+            <a href="territory" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Territory</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="state.php" class="nav-link">
+            <a href="state" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>State</p>
             </a>
@@ -73,7 +81,7 @@
 
           <li class="nav-header">Customer Order</li>
           <li class="nav-item">
-            <a href="search04062022.php" class="nav-link">
+            <a href="search" class="nav-link">
             <i class="nav-icon uil uil-search-alt"></i>
               <p>
                 Search Poid
@@ -91,21 +99,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="admin-sales-item.php" class="nav-link">
+                <a href="sales-report" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sales Item</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-reseller.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Reseller Sales</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-osr-report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>OSC Total Sales</p>
                 </a>
               </li>
             </ul>
@@ -120,25 +116,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="order-shipping.php" class="nav-link">
+                <a href="shipping" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Shipping Fee</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="order-cash.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cash Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="order-epayment.php" class="nav-link">
+                <a href="epayment" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>E Payment</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="order-bank.php" class="nav-link">
+                <a href="bank" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bank Payment</p>
                 </a>
@@ -146,22 +136,6 @@
             </ul>
           </li>
         
-          <li class="nav-item">
-            <a href="ma-announcement.php" class="nav-link">
-              <i class="nav-icon uil uil-trophy"></i>
-              <p>
-                Top Banner
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="accounting-inventory.php" class="nav-link">
-              <i class="nav-icon uil uil-building"></i>
-              <p>
-                Inventory
-              </p>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
